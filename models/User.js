@@ -12,6 +12,13 @@ const UserSchema = new Schema({
   dateJoined: { type: Date, default: Date.now }
 });
 
+UserSchema.set("toJSON", {
+  transform: function(doc, ret, opt) {
+    delete ret["password"];
+    return ret;
+  }
+});
+
 const User = mongoose.model("User", UserSchema);
 
 module.exports = User;
