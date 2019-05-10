@@ -87,7 +87,7 @@ const seedDatabase = async () => {
 
     for (let post in newPosts) {
       console.log("Random Index = ", randomIndex(newPosts));
-      newPosts[post].userId = newUsers[randomIndex(newUsers)];
+      newPosts[post].user = newUsers[randomIndex(newUsers)];
       // Save Post
       await newPosts[post].save();
     }
